@@ -1,0 +1,8 @@
+flowchart TB
+  HTTP[Presentacion HTTP y CLI] --> UC[Aplicacion y puertos]
+  UC --> Domain[Dominio]
+  Memory[Infraestructura de almacenamiento] -. implementa .-> UC
+  Devices[Infraestructura dispositivos] -. implementa .-> UC
+  Payments[Infraestructura de pagos] -. implementa .-> UC
+  Bootstrap[Bootstrap] --> UC
+  Bootstrap --> Memory

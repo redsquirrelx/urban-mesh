@@ -1,0 +1,13 @@
+sequenceDiagram
+  participant API as HTTP
+  participant Reader as SensorReader
+  participant Calibration as CalibrationPolicy
+  participant Quality as QualityRule
+  participant Repo as QualityStore
+  API->>Reader: read(sensor_id)
+  Reader-->>API: SensorReading
+  API->>Calibration: apply(reading)
+  Calibration-->>API: Calibrated reading
+  API->>Quality: assess
+  Quality-->>API: accepted / hold / rejected
+  API->>Repo: save(QualityResult)

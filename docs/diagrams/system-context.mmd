@@ -1,0 +1,9 @@
+flowchart LR
+  Passenger[Pasajero] --> Api[UrbanMesh API]
+  Operator[Operador] --> Api
+  Api --> Transit[Transporte]
+  Api --> Rental[Micromovilidad]
+  Api --> Telemetry[Telemetria]
+  Api --> Depot[Abastecimiento]
+  Transit --> Ops[Operaciones]
+  Telemetry --> Ops

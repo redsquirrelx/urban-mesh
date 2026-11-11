@@ -1,0 +1,9 @@
+flowchart LR
+  Journeys[Planificacion] --- Routes[Catalogo de rutas]
+  Campaigns[Engagement] --- Commute[Orquestacion de viaje]
+  Journeys --> Commute
+  Fares[Tarifas] --> Commute
+  Tickets[Billetes] --> Commute
+  Alerts[Alertas] --- WorkOrders[Mantenimiento]
+  Reports[Reportes] --- Retention[Retencion]
+  Sensor[Telemetria] --- Custody[Custodia]

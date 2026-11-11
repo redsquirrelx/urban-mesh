@@ -1,0 +1,16 @@
+sequenceDiagram
+  participant API as HTTP
+  participant Ride as RideService
+  participant Lock as LockGateway
+  participant Repo as RideRepository
+  participant Pay as SettlementService
+  participant Gateway as PaymentGateway
+  API->>Ride: start
+  Ride->>Lock: unlock
+  Ride->>Repo: save(active)
+  API->>Ride: finish
+  Ride->>Lock: lock
+  Ride->>Repo: save(completed)
+  API->>Pay: settle
+  Pay->>Gateway: capture(FareQuote)
+  Gateway-->>Pay: PaymentReceipt
